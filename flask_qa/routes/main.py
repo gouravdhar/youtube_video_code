@@ -101,7 +101,7 @@ def apiToGetCoords():
         coords = []
         for stat in stats:
             row=stat.ip+','+stat.loc+','+stat.city+','+stat.country+','+stat.org+','+stat.postal+','+stat.region+','+stat.timezone+','+stat.time
-            coords.append(coordinate)
+            coords.append(row)
         
         return json.dumps(coords), 200
 

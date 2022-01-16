@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import current_user, login_required
 
 from flask_qa.extensions import db
-from flask_qa.models import Question, User
+from flask_qa.models import Question, User, Stats
 
 main = Blueprint('main', __name__)
 
@@ -72,11 +72,6 @@ def apiToPostStats():
 
         return "okay", 200
 
-    experts = User.query.filter_by(expert=True).all()
-
-    context = {
-        'experts' : experts
-    }
 
     return render_template('ask.html', **context)
 

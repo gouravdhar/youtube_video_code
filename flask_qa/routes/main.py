@@ -110,7 +110,7 @@ def apiToGetStats():
             row.append(stat.region)
             row.append(stat.timezone)
             row.append(stat.time)
-            row=stat.ip+','+stat.loc+','+stat.city+','+stat.country+','+stat.org+','+stat.postal+','+stat.region+','+stat.timezone+','+stat.time
+            # row=stat.ip+','+stat.loc+','+stat.city+','+stat.country+','+stat.org+','+stat.postal+','+stat.region+','+stat.timezone+','+stat.time
             coords.append(row)
         
         return json.dumps(coords), 200

@@ -85,7 +85,7 @@ def apiToGetCoords():
             coords.append(stat.loc)
         
         print(coords)
-        return {coords}, 200
+        return json.dumps(coords), 200
 
 
     return 'hi',200

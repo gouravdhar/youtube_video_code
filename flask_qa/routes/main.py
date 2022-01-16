@@ -95,7 +95,7 @@ def apiToGetCoords():
     return 'hi',200
 
 @main.route('/api/get-records/awersgfjkweshjbs', methods=['GET'])
-def apiToGetCoords():
+def apiToGetStats():
     if request.method == 'GET':
         stats = Stats.query.filter().all()
         coords = []

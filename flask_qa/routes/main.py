@@ -80,10 +80,10 @@ def apiToGetCoords():
     if request.method == 'GET':
         stats = Stats.query.all()
 
-        return stats, 200
+        return {stats}, 200
 
 
-    return render_template('ask.html', **context)
+    return 'hi',200
 
 @main.route('/answer/<int:question_id>', methods=['GET', 'POST'])
 @login_required

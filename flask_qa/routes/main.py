@@ -3,6 +3,7 @@ from flask_login import current_user, login_required
 from flask_cors import CORS
 from flask_qa.extensions import db
 from flask_qa.models import Question, User, Stats
+import json
 
 main = Blueprint('main', __name__)
 
@@ -80,7 +81,7 @@ def apiToGetCoords():
     if request.method == 'GET':
         stats = Stats.query.filter().all()
 
-        return stats, 200
+        return json.dumps(stats), 200
 
 
     return 'hi',200

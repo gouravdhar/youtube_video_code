@@ -38,3 +38,16 @@ class Question(db.Model):
     answer = db.Column(db.Text)
     asked_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     expert_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+class Stats(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    ip = db.Column(db.Text)
+    loc = db.Column(db.Text)
+    city = db.Column(db.Text)
+    country = db.Column(db.Text)
+    org = db.Column(db.Text)
+    postal = db.Column(db.Text)
+    region = db.Column(db.Text)
+    timezone = db.Column(db.Text)
+    time = db.Column(db.Text)
+    

@@ -83,8 +83,8 @@ def apiToGetCoords():
         coords = []
         for stat in stats:
             coordinate = []
-            first = float(stat.split(',')[0])
-            second = float(stat.split(',')[1])
+            first = float(stat.loc.split(',')[0])
+            second = float(stat.loc.split(',')[1])
             coordinate.append(second)
             coordinate.append(first)
             coords.append(coordinate)

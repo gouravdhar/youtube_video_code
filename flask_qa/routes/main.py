@@ -89,7 +89,6 @@ def apiToGetCoords():
             coordinate.append(first)
             coords.append(coordinate)
         
-        print(coords)
         return json.dumps(coords), 200
 
 

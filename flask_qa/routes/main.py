@@ -83,7 +83,7 @@ def apiToGetCoords():
         context = {
         'resp' : stats
     }
-        return resp, 200
+        return context, 200
 
 
     return 'hi',200

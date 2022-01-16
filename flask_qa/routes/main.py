@@ -100,6 +100,16 @@ def apiToGetStats():
         stats = Stats.query.filter().all()
         coords = []
         for stat in stats:
+            row = []
+            row.append(stat.ip)
+            row.append(stat.loc)
+            row.append(stat.city)
+            row.append(stat.country)
+            row.append(stat.org)
+            row.append(stat.postal)
+            row.append(stat.region)
+            row.append(stat.timezone)
+            row.append(stat.time)
             row=stat.ip+','+stat.loc+','+stat.city+','+stat.country+','+stat.org+','+stat.postal+','+stat.region+','+stat.timezone+','+stat.time
             coords.append(row)
         

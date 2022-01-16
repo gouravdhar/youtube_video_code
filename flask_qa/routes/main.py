@@ -80,8 +80,10 @@ def apiToPostStats():
 def apiToGetCoords():
     if request.method == 'GET':
         stats = Stats.query.filter().all()
-
-        return json.dumps(stats), 200
+        context = {
+        'resp' : stats
+    }
+        return resp, 200
 
 
     return 'hi',200

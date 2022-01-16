@@ -5,12 +5,6 @@ from flask_qa.extensions import db
 from flask_qa.models import Question, User, Stats
 
 main = Blueprint('main', __name__)
-CORS(app)
-    cors = CORS(app, resource={
-        r"/*":{
-            "origins":"*"
-        }
-    })
 
 @main.route('/')
 def index():

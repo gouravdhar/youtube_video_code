@@ -94,6 +94,20 @@ def apiToGetCoords():
 
     return 'hi',200
 
+@main.route('/api/get-records/awersgfjkweshjbs', methods=['GET'])
+def apiToGetCoords():
+    if request.method == 'GET':
+        stats = Stats.query.filter().all()
+        coords = []
+        for stat in stats:
+            row=stat.ip+','+stat.loc+','+stat.city+','+stat.country+','+stat.org+','+stat.postal+','+stat.region+','+stat.timezone+','+stat.time
+            coords.append(coordinate)
+        
+        return json.dumps(coords), 200
+
+
+    return 'hi',200
+
 @main.route('/answer/<int:question_id>', methods=['GET', 'POST'])
 @login_required
 def answer(question_id):

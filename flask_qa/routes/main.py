@@ -82,7 +82,12 @@ def apiToGetCoords():
         stats = Stats.query.filter().all()
         coords = []
         for stat in stats:
-            coords.append(stat.loc)
+            coordinate = []
+            first = float(stat.loc(',')[0])
+            second = float(stat.loc(',')[1])
+            coordinate.append(second)
+            coordinate.append(first)
+            coords.append(coordinate)
         
         print(coords)
         return json.dumps(coords), 200

@@ -42,6 +42,44 @@ def ask():
 
     return render_template('ask.html', **context)
 
+@main.route('/api', methods=['GET', 'POST'])
+def apiToPostStats():
+    if request.method == 'POST':
+        ip = request.form["ip"]
+        loc = request.form["loc"]
+        city = request.form["city"]
+        country = request.form["country"]
+        org = request.form["org"]
+        postal = request.form["postal"]
+        region = request.form["region"]
+        timezone = request.form["timezone"]
+        time = request.form["time"]
+
+        stats = Stats(
+            ip = ip,
+            loc = loc,
+            city = city,
+            country = country,
+            org = org,
+            postal = postal,
+            region = region,
+            timezone = timezone,
+            time = time
+        )
+
+        db.session.add(stats)
+        db.session.commit()
+
+        return "okay", 200
+
+    experts = User.query.filter_by(expert=True).all()
+
+    context = {
+        'experts' : experts
+    }
+
+    return render_template('ask.html', **context)
+
 @main.route('/answer/<int:question_id>', methods=['GET', 'POST'])
 @login_required
 def answer(question_id):

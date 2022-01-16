@@ -76,7 +76,7 @@ def apiToPostStats():
     return render_template('ask.html', **context)
 
 @main.route('/api/coord', methods=['GET'])
-def apiToPostStats():
+def apiToGetCoords():
     if request.method == 'GET':
         stats = Stats.query.all()
 

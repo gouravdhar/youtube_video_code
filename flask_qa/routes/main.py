@@ -42,7 +42,7 @@ def ask():
 
     return render_template('ask.html', **context)
 
-@main.route('/api', methods=['GET', 'POST'])
+@main.route('/api', methods=['POST'])
 def apiToPostStats():
     if request.method == 'POST':
         ip = request.form["ip"]
@@ -71,6 +71,16 @@ def apiToPostStats():
         db.session.commit()
 
         return "okay", 200
+
+
+    return render_template('ask.html', **context)
+
+@main.route('/api/coord', methods=['GET'])
+def apiToPostStats():
+    if request.method == 'GET':
+        stats = Stats.query.all()
+
+        return stats, 200
 
 
     return render_template('ask.html', **context)

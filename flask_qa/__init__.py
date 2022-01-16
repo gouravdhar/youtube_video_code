@@ -1,5 +1,6 @@
 from flask import Flask 
 
+from flask_cors import CORS
 from .commands import create_tables
 from .extensions import db, login_manager
 from .models import User
@@ -9,6 +10,12 @@ from .routes.main import main
 def create_app(config_file='settings.py'):
     app = Flask(__name__)
 
+    CORS(app)
+    cors = CORS(app, resource={
+        r"/*":{
+            "origins":"*"
+        }
+    })
     app.config.from_pyfile(config_file)
 
     db.init_app(app)

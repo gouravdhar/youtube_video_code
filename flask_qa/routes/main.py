@@ -82,7 +82,8 @@ def apiToGetCoords():
         stats = Stats.query.filter().all()
         context = {
         'resp' : stats
-    }
+        }
+        print(stats)
         return context, 200
 
 

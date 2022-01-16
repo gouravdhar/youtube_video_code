@@ -78,7 +78,7 @@ def apiToPostStats():
 @main.route('/api/coord', methods=['GET'])
 def apiToGetCoords():
     if request.method == 'GET':
-        stats = Stats.query.filter().all()
+        stats[] = Stats.query.filter().all()
 
         return {stats}, 200
 

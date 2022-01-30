@@ -130,7 +130,7 @@ def apiToGetNotes(userName):
             )
             db.session.add(newNotes)
             db.session.commit()
-            return json.dumps(newnotes.notes), 200
+            return json.dumps(newNotes.notes), 200
         return json.dumps(notes.notes), 200
 
 

@@ -84,6 +84,13 @@ def apiToPostNotes():
         notesEntry = request.form["notes"]
 
         notesRow = Notes.query.filter_by(username=userName).first()
+        if not notesRow:
+            notes=Notes(
+                notes=notesEntry
+                userName = userName
+            )
+            db.session.add(notes)
+            db.session.commit()
         # if not notesRow:
         #     notes = Notes(
         #         notes = notesEntry,

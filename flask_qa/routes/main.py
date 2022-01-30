@@ -112,7 +112,8 @@ def apiToPostNotes():
 def apiToGetNotes(userName):
     if request.method == 'GET':
         notes = Notes.query.filter_by(username=userName).first()
-        
+        if not notes:
+            return "not okay", 200
         return json.dumps(notes.notes), 200
 
 

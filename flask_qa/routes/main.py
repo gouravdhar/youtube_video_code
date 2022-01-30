@@ -85,7 +85,7 @@ def apiToPostNotes():
 
         notesRow = Notes.query.filter_by(username=userName).first()
         if not notesRow:
-                notes = Notes(
+            notes = Notes(
                 notes = notesEntry,
                 username = username
             )

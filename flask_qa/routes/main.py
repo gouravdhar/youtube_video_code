@@ -93,12 +93,7 @@ def apiToPostNotes():
             db.session.commit()
         else:
             idRow=notesRow.id
-            notes = Notes(
-                id=idRow,
-                notes=notesEntry,
-                username=userName
-            )
-            db.session.add(notes)
+            notesRow.notes = notesEntry
             db.session.commit()
         # if not notesRow:
         #     notes = Notes(

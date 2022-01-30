@@ -79,12 +79,11 @@ def apiToPostStats():
 @main.route('/api/postNotes', methods=['POST', 'GET'])
 def apiToPostStats():
     if request.method == 'POST':
-        id = request.form["id"]
+        # id = request.form["id"]
         username = request.form["username"]
         notes = request.form["notes"]
 
         notes = Notes(
-            id = id,
             notes = notes,
             username = username
         )

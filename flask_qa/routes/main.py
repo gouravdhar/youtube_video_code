@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import current_user, login_required
 from flask_cors import CORS
 from flask_qa.extensions import db
-from flask_qa.models import Question, User, Stats
+from flask_qa.models import Question, User, Stats, Notes
 import json
 
 main = Blueprint('main', __name__)
@@ -75,6 +75,38 @@ def apiToPostStats():
 
 
     return render_template('ask.html', **context)
+
+@main.route('/api/postNotes', methods=['POST', 'GET'])
+def apiToPostStats():
+    if request.method == 'POST':
+        id = request.form["id"]
+        username = request.form["username"]
+        notes = request.form["notes"]
+
+        notes = Notes(
+            id = id,
+            notes = notes,
+            username = username
+        )
+
+        db.session.add(notes)
+        db.session.commit()
+        
+
+        return "okay", 200
+
+
+    return render_template('ask.html', **context)
+
+@main.route('/api/getNotes', methods=['GET'])
+def apiToGetCoords():
+    if request.method == 'GET':
+        notes = Notes.query.filter_by(username='gourav').first()
+        
+        return json.dumps(notes.notes), 200
+
+
+    return 'hi',200
 
 @main.route('/api/coord', methods=['GET'])
 def apiToGetCoords():

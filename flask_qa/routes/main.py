@@ -125,7 +125,7 @@ def apiToGetNotes(userName):
         notes = Notes.query.filter_by(username=userName).first()
         if not notes:
             newNotes = Notes(
-                notes = '[]'
+                notes = '[]',
                 username=userName
             )
             db.session.add(newNotes)

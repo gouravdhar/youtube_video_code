@@ -97,10 +97,10 @@ def apiToPostNotes():
 
     return render_template('ask.html', **context)
 
-@main.route('/api/getNotes', methods=['GET'])
-def apiToGetNotes():
+@main.route('/api/getNotes/<userName>', methods=['GET'])
+def apiToGetNotes(userName):
     if request.method == 'GET':
-        notes = Notes.query.filter_by(username='gouravNew').first()
+        notes = Notes.query.filter_by(username=userName).first()
         
         return json.dumps(notes.notes), 200
 

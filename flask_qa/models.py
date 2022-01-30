@@ -39,6 +39,11 @@ class Question(db.Model):
     asked_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     expert_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+class Notes(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    notes = db.Column(db.Text)
+    username = db.Column(db.Text)
+
 class Stats(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     ip = db.Column(db.Text)

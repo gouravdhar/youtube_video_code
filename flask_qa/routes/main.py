@@ -77,7 +77,7 @@ def apiToPostStats():
     return render_template('ask.html', **context)
 
 @main.route('/api/postNotes', methods=['POST', 'GET'])
-def apiToPostStats():
+def apiToPostNotes():
     if request.method == 'POST':
         # id = request.form["id"]
         username = request.form["username"]
@@ -98,7 +98,7 @@ def apiToPostStats():
     return render_template('ask.html', **context)
 
 @main.route('/api/getNotes', methods=['GET'])
-def apiToGetCoords():
+def apiToGetNotes():
     if request.method == 'GET':
         notes = Notes.query.filter_by(username='gourav').first()
         

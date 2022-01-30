@@ -100,7 +100,7 @@ def apiToPostNotes():
 @main.route('/api/getNotes', methods=['GET'])
 def apiToGetNotes():
     if request.method == 'GET':
-        notes = Notes.query.filter_by(username='gourav').first()
+        notes = Notes.query.filter_by(username='gouravNew').first()
         
         return json.dumps(notes.notes), 200
 
